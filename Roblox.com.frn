@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>BlockWorld</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial;
+    background: linear-gradient(120deg,#0f172a,#020617);
+    color:white;
+    text-align:center;
+}
+
+.tela{
+    display:none;
+    height:100vh;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+}
+
+.ativa{
+    display:flex;
+}
+
+h1{
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+.botao{
+    background:#2563eb;
+    border:none;
+    padding:15px 40px;
+    border-radius:10px;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    margin:10px;
+    transition:0.2s;
+}
+
+.botao:hover{
+    background:#1d4ed8;
+    transform:scale(1.05);
+}
+
+input{
+    padding:15px;
+    width:250px;
+    border-radius:10px;
+    border:none;
+    margin:10px;
+    font-size:18px;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<!-- TELA INICIAL -->
+<div id="inicio" class="tela ativa">
+    <h1>BlockWorld</h1>
+    <p>Um mundo de blocos e diversão 😎</p>
+    <button class="botao" onclick="entrar()">Entrar</button>
+</div>
+
+<!-- TELA DE LOGIN -->
+<div id="login" class="tela">
+    <h1>Login</h1>
+    <input id="user" placeholder="Nome de usuário">
+    <input id="pass" type="password" placeholder="Senha">
+    <button class="botao" onclick="logar()">Entrar</button>
+</div>
+
+<script>
+function entrar(){
+    document.getElementById("inicio").classList.remove("ativa");
+    document.getElementById("login").classList.add("ativa");
+}
+
+function logar(){
+    let user = document.getElementById("user").value;
+    let pass = document.getElementById("pass").value;
+
+    if(user === "" || pass === ""){
+        alert("Preenche tudo aí, campeão 😅");
+    } else {
+        alert("Bem-vindo, " + user + " 🔥");
+    }
+}
+</script>
+
+</body>
+</html>
